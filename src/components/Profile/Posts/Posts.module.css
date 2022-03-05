@@ -1,0 +1,47 @@
+.wrapper {
+    height: 100%;
+}
+
+.addPost {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.151);
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.addPost form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 10px;
+}
+
+.addPost form textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.151);
+    resize: none;
+    border-radius: 5px;
+    border: none;
+    width: 85%;
+    height: 50px;
+}
+
+.Button {
+    margin: auto 0 auto 0;
+    height: 35px; 
+    width: 13.5%; 
+}
+
+.Button button {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.151);
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+}

@@ -18,3 +18,20 @@ a {
   text-decoration: none;
   color: rgb(252, 252, 252);
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+h1, h2 {
+  margin: 0;
+	padding: 0;
+	border: 0;
+  vertical-align: baseline;
+}
+
+div {
+  margin: 0;
+	padding: 0;
+	border: 0;
+}

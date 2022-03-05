@@ -1,36 +1,3 @@
 .wrapper {
-    background-color: rgb(70, 70, 70);
-    border-radius: 5px;
-}
-
-.topBlock {
-    display: flex;
-}
-
-.photo {
-    grid-area: p;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.photo img {
-    width: 300px;
-    border-radius: 5px
-    ;
-}
-
-.info {
-    background-color: rgb(219, 139, 139);
-}
-
-.info ul {
-    list-style-type: none;
-}
-
-.addPost {
-    background-color: rgb(251, 255, 0);
-}
-
-.posts {
-    background-color: rgb(0, 255, 0);
+    height: 100%;
 }

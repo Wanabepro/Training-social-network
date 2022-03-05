@@ -13,11 +13,11 @@
 .contentWrapper {
   margin: 0;
   width: 100%;
+  min-height: 528px;
 }
 
 footer {
   background-color: rgb(4, 30, 48);
-  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;

@@ -1,7 +1,5 @@
 import React from "react";
 import HeaderStyles from './Header.module.css'
-console.log(HeaderStyles)
-
 
 const Header = () => {
     return (
