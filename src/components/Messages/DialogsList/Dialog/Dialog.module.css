@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    margin: 10px;
+    border-radius: 5px;
+    height: 70px;
+    border: solid 2px #fff;
+}
+
+.avatar {
+    background-color: rgba(255, 255, 255, 0.151);
+    margin: auto 0 auto 10px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.avatar img{
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info {
+    margin-left: 10px;
+    color: #fff;
+    margin: auto 0 auto 10px;
+}
+
+.info p{
+    margin: 0;
+    padding: 0;
+}
+
+p:last-child {
+    font-size: 0.8em;
+}

@@ -1,0 +1,17 @@
+.container  {
+    width: 80%;
+    outline: solid 2px #fff;
+    border-radius: 5px;
+    font-size: 0.8em;
+    min-height: 3em;
+    word-wrap: break-word;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 3px;
+    margin:2px 2px 10px 2px;
+    color: #fff;
+}
+
+.me{
+    float: right;
+}

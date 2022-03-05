@@ -22,12 +22,12 @@ const App = () => {
           <Navbar />
           <div className={appStyles.contentWrapper}>
             <Routes>
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/messages' element={<Messages />} />
-              <Route path='/images' element={<Images />} />
-              <Route path='/music' element={<Music />} />
-              <Route path='/news' element={<News />} />
-              <Route path='/settings' element={<Settings />} />
+              <Route exact path='/profile' element={<Profile />} />
+              <Route exact path='/messages' element={<Messages />} />
+              <Route exact path='/images' element={<Images />} />
+              <Route exact path='/music' element={<Music />} />
+              <Route exact path='/news' element={<News />} />
+              <Route exact path='/settings' element={<Settings />} />
             </Routes>
           </div>
         </div>
