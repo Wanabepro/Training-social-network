@@ -1,21 +1,14 @@
-import React from "react";
-import Posts from "./Posts/Posts";
+import React from "react"
 import ProfileInfo from './ProfileInfo/ProfileInfo'
+import PostsContainer from "./Posts/PostsContainer"
 import profileStyles from './Profile.module.css'
 
-const Profile = () => {
-    let userinfo = {
-        name: 'Сергей',
-        surname: 'Ильясов',
-        citi: 'Санкт-Петербург',
-        tel: '+79777622720',
-        mail: 'ilyasov_sk@mail.ru',
-    }
 
+const Profile = (props) => {
     return (
         <div className={profileStyles.wrapper}>
-            <ProfileInfo {...userinfo}/>
-            <Posts />
+            <ProfileInfo profileInfo={props.store.getState().profilePage.profileInfo} />
+            <PostsContainer />
         </div>
     )
 }

@@ -2,12 +2,13 @@ import React from "react";
 import messangerStyles from './Messanger.module.css';
 import Message from "./Message/Message";
 
-const Messanger = () => {
+const Messanger = (props) => {
+    let messages = props.messages.map(message => <Message id={message.id} message={message.message} />)
+
     return (
         <div className={messangerStyles.container}>
             <div className={messangerStyles.messages}>
-                <Message />
-                <Message identity='me'/>                
+                {messages}
             </div>
             <div className={messangerStyles.addMessage}>
                 <form>

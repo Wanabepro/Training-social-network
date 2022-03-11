@@ -3,10 +3,12 @@ import Dialog from './Dialog/Dialog'
 import dialogsListStyles from './DialogsList.module.css';
 
 
-const DialogsList = () => {
-    return(
+const DialogsList = (props) => {
+    let dialogs = props.dialogs.map(dialog => <Dialog id={dialog.id} name={dialog.name} lastMessage={dialog.lastMessage} avatarLink={dialog.avatarLink} />)
+
+    return (
         <div className={dialogsListStyles.container}>
-            <Dialog id='1'/>
+            {dialogs}
         </div>
     )
 }
