@@ -21,7 +21,7 @@ const App = (props) => {
         <Navbar state={props.store.getState().navbarPage} />
         <div className={appStyles.contentWrapper}>
           <Routes>
-            <Route exact path='/profile' element={<Profile store={props.store} />} />
+            <Route exact path='/profile' element={<Profile state={props.store.getState().profilePage} />} />
             <Route exact path='/users' element={<UsersContainer />} />
             <Route path='/messages' element={<Messages store={props.store} />} />
             <Route exact path='/images' element={<Images />} />

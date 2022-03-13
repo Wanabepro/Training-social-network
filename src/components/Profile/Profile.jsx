@@ -7,7 +7,7 @@ import profileStyles from './Profile.module.css'
 const Profile = (props) => {
     return (
         <div className={profileStyles.wrapper}>
-            <ProfileInfo profileInfo={props.store.getState().profilePage.profileInfo} />
+            <ProfileInfo profileInfo={props.state.profileInfo} />
             <PostsContainer />
         </div>
     )
