@@ -31,12 +31,17 @@
     width: 100%;
 }
 
+.Button button:disabled {
+    color: #274a55;
+}
+
 .avatar {
     height: 60px;
     width: 60px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.151);
     display: flex;
+    cursor: pointer;
 }
 
 .avatar img {

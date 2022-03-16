@@ -1,5 +1,6 @@
 span {
     color: #fff;
+    cursor: pointer;
 }
 
 .selected {

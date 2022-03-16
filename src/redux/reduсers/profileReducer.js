@@ -1,11 +1,11 @@
+const SET_PROFILE_INFO = 'SET_PROFILE_INFO'
+const SEND_POST = 'SEND_POST'
+const UPDATE_LETTER_IN_NEW_POST = 'UPDATE_LETTER_IN_NEW_POST'
+const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING'
+
 const initialState = {
-    profileInfo: {
-        name: 'Сергей',
-        surname: 'Ильясов',
-        citi: 'Санкт-Петербург',
-        tel: '+79777622720',
-        mail: 'ilyasov_sk@mail.ru',
-    },
+    profileInfo: null,
+    isLoading: true,
     posts: [
         { id: 0, name: 'Сергей Ильясов', avatarLink: 'https://sun9-87.userapi.com/impf/c848632/v848632082/ad691/Bwea4WZhDOw.jpg?size=1504x1000&quality=96&sign=33bb05f520ade8f6d7ee10222d71d569&type=album', text: 'текст поста 1', likesCount: 10 },
         { id: 1, name: 'Иван Иванов', avatarLink: 'https://sun9-16.userapi.com/impg/-EDLrv40aP4HDBJtqDCyY-G9N_2iAzY5MTtZxw/WoY02m58x7M.jpg?size=1215x2160&quality=95&sign=dd056802bb04d11f3f494c5a6785c6a9&type=album', text: 'текст поста 2', likesCount: 8 },
@@ -17,29 +17,42 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'SEND_POST':
+        case SET_PROFILE_INFO:
+            return {
+                ...state,
+                profileInfo: action.info
+            }
+
+        case TOGGLE_IS_LOADING:
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
+
+        case SEND_POST:
             return {
                 ...state,
                 posts: [...state.posts, { id: state.posts.length, name: 'Сергей Ильясов', avatarLink: 'https://sun9-87.userapi.com/impf/c848632/v848632082/ad691/Bwea4WZhDOw.jpg?size=1504x1000&quality=96&sign=33bb05f520ade8f6d7ee10222d71d569&type=album', text: state.newPostText, likesCount: 0, }],
                 newPostText: '',
             }
 
-        case 'UPDATE_LETTER_IN_NEW_POST':
+        case UPDATE_LETTER_IN_NEW_POST:
             return {
                 ...state,
                 newPostText: action.newPostText,
             }
 
-        default: return (state)
+        default:
+            return (state)
     }
 }
 
-export const sendPostActionCreator = () => {
-    return ({ type: 'SEND_POST' })
-}
-export const updateFormActionCreator = (newPostText) => {
-    return ({ type: 'UPDATE_LETTER_IN_NEW_POST', newPostText })
-}
+export const sendPostActionCreator = () => ({ type: SEND_POST })
 
+export const updateFormActionCreator = (newPostText) => ({ type: UPDATE_LETTER_IN_NEW_POST, newPostText })
+
+export const setProfileInfo = (info) => ({ type: SET_PROFILE_INFO, info })
+
+export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
 
 export default profileReducer

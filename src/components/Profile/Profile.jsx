@@ -2,12 +2,15 @@ import React from "react"
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import PostsContainer from "./Posts/PostsContainer"
 import profileStyles from './Profile.module.css'
-
+import Preloader from "../../Common/Preloader/Preloader"
 
 const Profile = (props) => {
-    return (
+    if (!props.profileInfo || props.isLoading === true) {
+        return <Preloader />
+    }
+    else return (
         <div className={profileStyles.wrapper}>
-            <ProfileInfo profileInfo={props.state.profileInfo} />
+            <ProfileInfo profileInfo={props.profileInfo} />
             <PostsContainer />
         </div>
     )

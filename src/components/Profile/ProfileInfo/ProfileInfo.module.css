@@ -1,8 +1,12 @@
-.wrapper {
+.container {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.151);
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+
+.wrapper {
     display: flex;
-    height: 2 20px;
 }
 
 .photo {
@@ -21,7 +25,7 @@
 .info {
     color: #fff;
     height: fit-content;
-    margin: auto 0 auto 40px;
+    margin: 10px 0 auto 40px;
 }
 
 .info ul {
@@ -31,5 +35,26 @@
 }
 
 .info ul li {
+    margin-bottom: 10px;
+}
+
+.contacts {
+    color: #fff;
+    height: fit-content;
+    margin: 10px 10px 10px 40px;
+    display: flex;
+}
+
+.contacts div {
+    flex-basis: 48%;
+}
+
+.contacts ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contacts ul li {
     margin-bottom: 5px;
 }

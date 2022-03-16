@@ -1,0 +1,33 @@
+.auth {
+    display: flex;
+    margin-left: auto;
+}
+
+.avatar{
+    background-color: rgba(255, 255, 255, 0.151);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    margin-right: 5px;
+}
+  
+.avatar img {
+    background-color: #fff;
+    display: block;
+    object-fit: cover;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+  
+.auth p {
+    margin: 0;
+    font-size: 0.8em;
+}
+  
+.auth p:last-child {
+    font-size: 0.6em;
+}
