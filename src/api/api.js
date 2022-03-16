@@ -13,6 +13,10 @@ export const usersAPI = {
         return instance.get(`users?page=${currentPage}&count=${count}`)
             .then(response => { return response.data })
     },
+    getProfile(id) {
+        return instance.get(`profile/${id}`)
+        .then(response => {return response.data})
+    },
     follow(id) {
         return instance.post(`follow/${id}`)
         .then(response => { return response.data.resultCode })
@@ -21,4 +25,10 @@ export const usersAPI = {
         return instance.delete(`follow/${id}`)
         .then(response => { return response.data.resultCode })
     },
+}
+
+export const authAPI = {
+    getAuthData() {
+        return instance.get('auth/me')
+    }
 }

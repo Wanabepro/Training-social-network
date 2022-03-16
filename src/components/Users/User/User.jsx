@@ -1,10 +1,8 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import userStyles from './User.module.css'
-import { usersAPI } from './../../../api/api';
 
 const User = (props) => {
-    debugger
     return (
         <div className={userStyles.container}>
             <div className={userStyles.left}>
@@ -15,25 +13,11 @@ const User = (props) => {
                 </NavLink>
                 <div className={userStyles.Button}>
                     {props.user.followed ?
-                        <button disabled={props.isFollowing} onClick={() => {
-                            props.toggleFollowing(true)
-                            usersAPI.unfollow(props.user.id)
-                                .then(resultCode => {
-                                    if (resultCode === 0) {
-                                        props.unfollow(props.user.id)
-                                    }
-                                })
-                            props.toggleFollowing(false)
+                        <button disabled={props.isFollowing.some(id => id === props.user.id)} onClick={() => {
+                            props.unfollowUser(props.user.id)
                         }}>Unfollow</button>
-                        : <button disabled={props.isFollowing} onClick={() => {
-                            props.toggleFollowing(true)
-                            usersAPI.follow(props.user.id)
-                                .then(resultCode => {
-                                    if (resultCode === 0) {
-                                        props.follow(props.user.id)
-                                    }
-                                })
-                            props.toggleFollowing(false)
+                        : <button disabled={props.isFollowing.some(id => id === props.user.id)} onClick={() => {
+                            props.followUser(props.user.id)
                         }}>Follow</button>}
                 </div>
             </div>

@@ -1,3 +1,5 @@
+import { usersAPI } from './../../api/api';
+
 const SET_PROFILE_INFO = 'SET_PROFILE_INFO'
 const SEND_POST = 'SEND_POST'
 const UPDATE_LETTER_IN_NEW_POST = 'UPDATE_LETTER_IN_NEW_POST'
@@ -48,11 +50,18 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const sendPostActionCreator = () => ({ type: SEND_POST })
-
 export const updateFormActionCreator = (newPostText) => ({ type: UPDATE_LETTER_IN_NEW_POST, newPostText })
-
 export const setProfileInfo = (info) => ({ type: SET_PROFILE_INFO, info })
-
 export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
+
+export const getProfile = (id) => {
+    return (dispatch) => {
+        dispatch(toggleIsLoading(true))
+        usersAPI.getProfile(id).then(data => {
+            dispatch(toggleIsLoading(false))
+            dispatch(setProfileInfo(data))
+        })
+    }
+}
 
 export default profileReducer

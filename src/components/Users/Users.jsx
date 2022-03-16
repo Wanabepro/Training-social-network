@@ -17,20 +17,11 @@ const Users = (props) => {
             {props.users.map(user => {
                     return <User key={user.id}
                         user={user}
-                        follow={props.follow}
-                        unfollow={props.unfollow}
+                        followUser={props.followUser}
+                        unfollowUser={props.unfollowUser}
                         isFollowing={props.isFollowing}
-                        toggleFollowing={props.toggleFollowing}
                     />
                 })}
-
-            {/* {props.users.map(user => {
-                return <User key={user.id}
-                    user={user}
-                    follow={props.follow}
-                    unfollow={props.unfollow}
-                />
-            })} */}
         </div>
     )
 }
