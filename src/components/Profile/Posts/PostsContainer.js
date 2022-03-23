@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { reset } from 'redux-form';
 import { sendPost } from './../../../redux/reduсers/profileReducer';
 import Posts from './Posts';
 
@@ -10,6 +11,6 @@ let mapStateToProps = (state) => {
     )
 }
 
-const PostsContainer = connect(mapStateToProps, { sendPost })(Posts)
+const PostsContainer = connect(mapStateToProps, { sendPost, reset })(Posts)
 
 export default PostsContainer

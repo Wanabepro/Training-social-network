@@ -12,6 +12,7 @@
 
 .contentWrapper {
   margin: 0;
+  max-width: 860.867px;
   width: 100%;
   min-height: 528px;
 }

@@ -30,9 +30,9 @@ class App extends React.Component {
       <div className={appStyles.App}>
         <HeaderContainer />
         <div className={appStyles.bodyWrapper}>
-          <Navbar state={this.props.store.getState().navbarPage} />
+          <Navbar />
           <div className={appStyles.contentWrapper}>
-            <Route exact path='/profile/:id?' render={() => <ProfileContainer />} />
+            <Route exact path='/profile/:id' render={() => <ProfileContainer />} />
             <Route exact path='/users' render={() => <UsersContainer />} />
             <Route path='/messages' render={() => <MessagesContainer />} />
             <Route exact path='/images' render={() => <Images />} />

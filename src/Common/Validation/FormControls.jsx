@@ -5,8 +5,13 @@ export const Input = ({ input, meta, ...props }) => {
     const hasError = meta.touched && meta.error
     return (
         <>
-            {hasError && <span className={styles.message}>{String(meta.error)}</span>}
-            <input className={hasError && styles.error} {...input} {...props}/>
+            {hasError
+                ? <span className={styles.message}>
+                    {String(meta.error)}
+                </span>
+                : undefined
+            }
+            <input className={hasError ? styles.error : undefined} {...input} {...props} />
         </>
     )
 }

@@ -6,13 +6,17 @@ import { getProfile, getStatus, updateStatus } from './../../redux/reduсers/pro
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from './../../HOC/withAuthRedirect';
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.PureComponent {
     componentDidMount() {
-        let id = this.props.match.params.id
-        if (!id) { id = this.props.authorizedUserID }
+        this.props.getProfile(this.props.match.params.id)
+        this.props.getStatus(this.props.match.params.id)
+    }
 
-        this.props.getProfile(id)
-        this.props.getStatus(id)
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.props.getProfile(this.props.match.params.id)
+            this.props.getStatus(this.props.match.params.id)
+        }
     }
 
     render() {
@@ -20,6 +24,7 @@ class ProfileContainer extends React.Component {
             <Profile profileInfo={this.props.profileInfo}
                 status={this.props.status}
                 updateStatus={this.props.updateStatus}
+                isLoading={this.props.isLoading}
             />
         )
     }

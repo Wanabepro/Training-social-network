@@ -2,7 +2,7 @@ import React from "react";
 import profileInfoStyles from './ProfileInfo.module.css'
 import ProfileStatus from './ProfileStatus/ProfileStatus';
 
-const ProfileInfo = (props) => {
+const ProfileInfo = props => {
     return (
         <div className={profileInfoStyles.container}>
             <div className={profileInfoStyles.wrapper}>

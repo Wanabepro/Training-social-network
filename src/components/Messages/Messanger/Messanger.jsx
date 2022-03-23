@@ -4,7 +4,7 @@ import Message from "./Message/Message";
 import { Field, reduxForm } from 'redux-form';
 import { required } from './../../../Common/Validation/Validators';
 
-const Form = (props) => {
+const Form = props => {
     return (
         <div className={messangerStyles.addMessage}>
             <form onSubmit={props.handleSubmit}>
@@ -22,9 +22,17 @@ const MessangerForm = reduxForm({ form: 'messanger' })(Form)
 const Messanger = (props) => {
     const addNewMessage = (values) => {
         props.sendMessage(values.message)
+        props.reset('messanger')
     }
 
-    let messages = props.messages.map(message => <Message key={message.id} id={message.id} message={message.message} />)
+    let messages = props.messages.map
+        (message =>
+            <Message
+                key={message.id}
+                id={message.id}
+                message={message.message}
+            />
+        )
 
     return (
         <div className={messangerStyles.container}>

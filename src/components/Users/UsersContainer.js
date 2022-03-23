@@ -15,12 +15,13 @@ class UsersContainer extends React.Component {
 
     onPageChange(page) {
         this.props.getUsers(page, this.props.count)
-        this.props.setCurrentPage(Number(page))
+        this.props.setCurrentPage(page)
     }
 
     render() {
         return <>
-            {this.props.isLoading ? <Preloader />
+            {this.props.isLoading
+                ? <Preloader />
                 : <Users users={this.props.users}
                     count={this.props.count}
                     totalCount={this.props.totalCount}

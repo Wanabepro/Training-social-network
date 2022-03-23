@@ -41,13 +41,14 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: [
-                    { id: state.posts.length,
+                    {
+                        id: state.posts.length,
                         name: 'Сергей Ильясов',
                         avatarLink: 'https://sun9-87.userapi.com/impf/c848632/v848632082/ad691/Bwea4WZhDOw.jpg?size=1504x1000&quality=96&sign=33bb05f520ade8f6d7ee10222d71d569&type=album',
                         text: action.newPost,
-                        likesCount: 0, 
+                        likesCount: 0,
                     },
-                    ...state.posts, 
+                    ...state.posts,
                 ],
             }
 
@@ -56,10 +57,10 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
+const setProfileInfo = (info) => ({ type: SET_PROFILE_INFO, info })
+const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
+const setStatus = (status) => ({ type: SET_STATUS, status })
 export const sendPost = (newPost) => ({ type: SEND_POST, newPost })
-export const setProfileInfo = (info) => ({ type: SET_PROFILE_INFO, info })
-export const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
-export const setStatus = (status) => ({ type: SET_STATUS, status })
 
 export const getProfile = (id) => {
     return (dispatch) => {

@@ -12,21 +12,51 @@ const Form = (props) => {
         <div className={loginStyles.container}>
             <form onSubmit={props.handleSubmit}>
                 <div>
-                    <Field name={"email"} placeholder='E-mail' validate={[required, emailValidator]} component={Input} />
+                    <Field
+                        name={"email"}
+                        placeholder='E-mail'
+                        validate={[required, emailValidator]}
+                        component={Input}
+                    />
                 </div>
                 <div>
-                    <Field name={"password"} type={"password"} placeholder='Password' validate={[required]} component={Input} />
+                    <Field
+                        name={"password"}
+                        placeholder='Password'
+                        validate={[required]}
+                        component={Input}
+                        type={"password"}
+                    />
                 </div>
                 <div className={loginStyles.checkboxWrapper}>
-                    <Field className={loginStyles.checkbox} name={"rememberMe"} component={"input"} type='checkbox' /> <div>Remember me</div>
+                    <Field
+                        className={loginStyles.checkbox}
+                        name={"rememberMe"}
+                        component={"input"}
+                        type='checkbox'
+                    />
+                    <div>
+                        Remember me
+                    </div>
                 </div>
-                {props.error && <div className={loginStyles.summaryError}>
-                    {props.error}
-                </div>}
-                {props.captchaURL && <div className={loginStyles.captcha}>
-                    <img src={props.captchaURL} alt="captcha" />
-                    <Field className={loginStyles.captchaInput} name={"captcha"} validate={[required]} component={Input} />
-                </div>}
+                {props.error
+                    ? <div className={loginStyles.summaryError}>
+                        {props.error}
+                    </div>
+                    : undefined
+                }
+                {props.captchaURL
+                    ? <div className={loginStyles.captcha}>
+                        <img src={props.captchaURL} alt="captcha" />
+                        <Field
+                            className={loginStyles.captchaInput}
+                            name={"captcha"}
+                            validate={[required]}
+                            component={Input}
+                        />
+                    </div>
+                    : undefined
+                }
                 <div className={loginStyles.Button}>
                     <button>Log In</button>
                 </div>
@@ -44,12 +74,17 @@ const Login = (props) => {
     }
 
     return props.isAuth
-        ? <Redirect to='/profile' />
-        : <LoginForm onSubmit={onSubmit} login={props.login} captchaURL={props.captchaURL}/>
+        ? <Redirect to={`/profile/${props.authorizedUserID}`} />
+        : <LoginForm
+            onSubmit={onSubmit}
+            login={props.login}
+            captchaURL={props.captchaURL}
+        />
 }
 
 const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
+    authorizedUserID: state.auth.id,
     captchaURL: state.auth.captchaURL,
 })
 
