@@ -10,7 +10,7 @@ const Profile = (props) => {
     }
     else return (
         <div className={profileStyles.wrapper}>
-            <ProfileInfo profileInfo={props.profileInfo} />
+            <ProfileInfo profileInfo={props.profileInfo} status={props.status} updateStatus={props.updateStatus} />
             <PostsContainer />
         </div>
     )

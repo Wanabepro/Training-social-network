@@ -10,8 +10,8 @@ const Dialog = (props) => {
                     <img src={props.avatarLink} alt="avatar" />
                 </div>
                 <div className={dialogStyles.info}>
-                    <p>{props.name}</p>
-                    <p>{props.lastMessage}</p>
+                    <div>{props.name}</div>
+                    <div>{props.lastMessage}</div>
                 </div>
             </div>
         </NavLink>

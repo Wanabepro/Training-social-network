@@ -1,29 +1,34 @@
 import React from "react";
 import postsStyles from './Posts.module.css'
 import Post from './Post/Post';
+import { Field, reduxForm } from 'redux-form';
+import { required } from './../../../Common/Validation/Validators';
+
+const Form = (props) => {
+    return (
+        <div className={postsStyles.addPost}>
+            <form onSubmit={props.handleSubmit}>
+                <Field name={"newPost"} component={"textarea"} placeholder='New Post...' validate={[required]}/>
+                <div className={postsStyles.Button}>
+                    <button>Submit</button>
+                </div>
+            </form>
+        </div>
+    )
+}
+
+const PostsForm = reduxForm({ form: 'newPost' })(Form)
 
 const Posts = (props) => {
-    let NewPostElement = React.createRef()
-
-    let onChangeTextarea = () => {
-        let text = NewPostElement.current.value;
-        props.onChangeTextarea(text);
+    const addNewPost = (values) => {
+        props.sendPost(values.newPost)
     }
 
     let posts = props.posts.map(post => <Post key={post.id} id={post.id} name={post.name} avatarLink={post.avatarLink} text={post.text} likesCount={post.likesCount} />)
 
     return (
         <div className={postsStyles.wrappaer}>
-            <div className={postsStyles.addPost}>
-                <textarea ref={NewPostElement}
-                    placeholder='New post...'
-                    onChange={onChangeTextarea}
-                    value={props.newPostText}
-                />
-                <div className={postsStyles.Button}>
-                    <button onClick={props.sendPost}>Submit</button>
-                </div>
-            </div>
+            <PostsForm onSubmit={addNewPost}/>
             {posts}
         </div >
     )

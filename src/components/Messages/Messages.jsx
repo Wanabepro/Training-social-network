@@ -4,13 +4,12 @@ import DialogsList from './DialogsList/DialogsList';
 import Messanger from './Messanger/Messanger';
 
 const Messages = (props) => {
-    let state = props.store.getState()
-    let dialogs = state.messagesPage.dialogs
-    let messages = state.messagesPage.messages
-    return(
+    return (
         <div className={messagesStyles.container}>
-            <DialogsList dialogs={dialogs}/>
-            <Messanger messages={messages}/>
+            <DialogsList dialogs={props.dialogs} />
+            <Messanger messages={props.messages}
+                sendMessage={props.sendMessage}
+            />
         </div>
     )
 }

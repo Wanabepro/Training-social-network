@@ -3,7 +3,7 @@
     margin: 10px;
     border-radius: 5px;
     height: 70px;
-    border: solid 2px #fff;
+    background-color: rgba(255, 255, 255, 0.151);
 }
 
 .avatar {
@@ -26,9 +26,12 @@
 }
 
 .info {
-    margin-left: 10px;
     color: #fff;
-    margin: auto 0 auto 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 0 10px 10px;
 }
 
 .info p{

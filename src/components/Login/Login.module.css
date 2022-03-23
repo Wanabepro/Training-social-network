@@ -1,0 +1,93 @@
+.container {
+    height: 268px;
+    background-color: rgba(255, 255, 255, 0.151);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.151);
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.755);
+}
+
+input {
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: #fff;
+    height: 2em;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.checkboxWrapper{
+    display: flex;
+    height: 2em;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.checkbox {
+    width:15px;
+    margin: 0;
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    display: inline-block;
+}
+
+.checkboxWrapper div {
+    flex-grow: 1;
+    line-height: 25px;
+}
+
+.summaryError {
+    color: rgb(250, 63, 63);
+}
+
+.captcha {
+    display: flex;
+    align-content: center;
+}
+.captcha img {
+    display: block;
+    width: 50%;
+    margin-right: 10px;
+}
+
+.captchaInput{
+    margin: auto 0;
+}
+
+.Button {
+    margin-top: auto;
+}
+
+button {
+    width: 100%;
+    height: 2em;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.673);
+}

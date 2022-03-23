@@ -1,0 +1,10 @@
+.message {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: rgb(250, 63, 63);
+    margin: 0;
+}
+
+.error {
+    border: solid rgb(184, 32, 32) 2px;
+}

@@ -1,3 +1,5 @@
+const SEND_MESSAGE = 'SEND_MESSAGE'
+
 const initialState = {
     dialogs: [
         { id: 1, avatarLink: 'https://sun9-87.userapi.com/impf/c848632/v848632082/ad691/Bwea4WZhDOw.jpg?size=1504x1000&quality=96&sign=33bb05f520ade8f6d7ee10222d71d569&type=album', name: 'Сергей', lastMessage: 'последнее собщение 1' },
@@ -9,35 +11,28 @@ const initialState = {
         { id: 1, message: 'Сообщение 2' },
         { id: 2, message: 'Сообщение 3' },
     ],
-    newMessageText: '',
 }
 
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'SEND_MESSAGE': {
-            let newMessage = {
-                id: state.messages.length,
-                message: state.newMessageText,
+        case SEND_MESSAGE: {
+            return {
+                ...state,
+                messages: [...state.messages,
+                {
+                    id: state.messages.length,
+                    message: action.newMessage,
+                }
+                ]
             }
-            state.messages.push(newMessage)
-            state.newMessageText = ''
-            return (state)
-        }
-        case 'UPDATE_LETTER_IN_NEW_MESSAGE': {
-            state.newMessageText = action.newMessageText
-            return (state)
         }
 
         default: return (state)
     }
 }
 
-export const updateNewMessageActionCreator = (message) => {
-    return ({ type: 'SEND_MESSAGE', message })
-}
-
-export const sendMessageActionCreator = () => {
-    return ({ type: 'UPDATE_LETTER_IN_NEW_MESSAGE' })
+export const sendMessage = (newMessage) => {
+    return ({ type: SEND_MESSAGE, newMessage })
 }
 
 export default messagesReducer

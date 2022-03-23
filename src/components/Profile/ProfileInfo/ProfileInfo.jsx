@@ -1,18 +1,28 @@
 import React from "react";
 import profileInfoStyles from './ProfileInfo.module.css'
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = (props) => {
     return (
         <div className={profileInfoStyles.container}>
             <div className={profileInfoStyles.wrapper}>
                 <div className={profileInfoStyles.photo}>
-                    <img src={props.profileInfo.photos.large} alt="avatar" />
+                    <img
+                        src={props.profileInfo.photos.large
+                            ? props.profileInfo.photos.large
+                            : '/User-avatar.png'}
+                        alt="avatar"
+                        className={props.profileInfo.photos.large
+                            ? ''
+                            : profileInfoStyles.noPhoto}
+                    />
                 </div>
                 <div className={profileInfoStyles.info}>
                     <h1>{props.profileInfo.fullName}</h1>
                     <ul>
                         <li>Ищу работу: {props.profileInfo.lookingForAJob ? 'да' : 'нет'}</li>
                         <li>{props.profileInfo.lookingForAJobDescription}</li>
+                        <li><ProfileStatus status={props.status} updateStatus={props.updateStatus} /></li>
                     </ul>
                 </div>
             </div>

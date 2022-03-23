@@ -8,7 +8,9 @@ const Header = (props) => {
         <header>
             <div className={HeaderStyles.logo}></div>
             <div className={HeaderStyles.p}>Training Social Network</div>
-            {props.isAuth ? <Authorized login={props.login} email={props.email}/> : <div className={HeaderStyles.login}><NavLink to='/login' className={HeaderStyles.link}>Login</NavLink></div>} 
+            {props.isAuth
+                ? <Authorized login={props.login} email={props.email} photo={props.photo} logout={props.logout} />
+                : <div className={HeaderStyles.login}><NavLink to='/login' className={HeaderStyles.link}>Login</NavLink></div>}
         </header>)
 }
 

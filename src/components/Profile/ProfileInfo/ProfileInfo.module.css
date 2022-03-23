@@ -10,22 +10,33 @@
 }
 
 .photo {
+    background-color: rgba(255, 255, 255, 0.151);
+    color: #fff;
     border-radius: 5px;
     width: 300px;
     height: 200px;
     margin: 10px 0 10px 10px;
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 .photo img {
-    width: 300px;
-    height: 200px;
-    border-radius: 5px;
+    width: 290px;
+    height: 190px;
+    border-radius: 2.5px;
+    object-fit: cover;
+}
+
+.noPhoto {
+    object-position: 50% 10%;
+
 }
 
 .info {
+    flex-grow: 1;
     color: #fff;
     height: fit-content;
-    margin: 10px 0 auto 40px;
+    margin: 10px 10px auto 40px;
 }
 
 .info ul {

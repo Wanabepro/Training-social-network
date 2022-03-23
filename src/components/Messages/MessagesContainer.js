@@ -1,26 +1,14 @@
-import React from 'react'
-import { sendMessageActionCreator, updateFormActionCreator } from './../../../redux/reduсers/messagesReducer';
+import { sendMessage } from './../../redux/reduсers/messagesReducer';
 import Messages from './Messages';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withAuthRedirect } from './../../HOC/withAuthRedirect';
 
-const PostsContainer = (props) => {
-    let sendPost = () => {
-        const action = sendMessageActionCreator();
-        props.store.dispatch(action);
-    }
+const mapStateToProps = (state) => ({
+    dialogs: state.messagesPage.dialogs,
+    messages: state.messagesPage.messages,
+})
 
-    let onChangeTextarea = (text) => {
-        const action = updateFormActionCreator(text);
-        props.store.dispatch(action);
-    }
+export default compose(connect(mapStateToProps, { sendMessage }),
+    withAuthRedirect)(Messages)
 
-    let Messages = props.store.getState().messagesPage.Messages;
-
-    let newMessageText = props.store.getState().messagesPage.newMessageText;
-
-    return (<Messages sendMessage={sendMessage}
-        onChangeTextarea={onChangeTextarea}
-        Messages={Messages}
-        newMessageText={newMessageText} />)
-}
-
-export default PostsContainer
