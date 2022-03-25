@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Training-social-network/static/css/main.41ba3404.css",
-    "main.js": "/Training-social-network/static/js/main.986124b9.js",
+    "main.js": "/Training-social-network/static/js/main.cf5aaf38.js",
     "static/css/666.511eff6e.chunk.css": "/Training-social-network/static/css/666.511eff6e.chunk.css",
     "static/js/666.00997e2f.chunk.js": "/Training-social-network/static/js/666.00997e2f.chunk.js",
     "static/css/473.97c97488.chunk.css": "/Training-social-network/static/css/473.97c97488.chunk.css",
@@ -13,7 +13,7 @@
     "static/js/787.b5798159.chunk.js": "/Training-social-network/static/js/787.b5798159.chunk.js",
     "index.html": "/Training-social-network/index.html",
     "main.41ba3404.css.map": "/Training-social-network/static/css/main.41ba3404.css.map",
-    "main.986124b9.js.map": "/Training-social-network/static/js/main.986124b9.js.map",
+    "main.cf5aaf38.js.map": "/Training-social-network/static/js/main.cf5aaf38.js.map",
     "666.511eff6e.chunk.css.map": "/Training-social-network/static/css/666.511eff6e.chunk.css.map",
     "666.00997e2f.chunk.js.map": "/Training-social-network/static/js/666.00997e2f.chunk.js.map",
     "473.97c97488.chunk.css.map": "/Training-social-network/static/css/473.97c97488.chunk.css.map",
@@ -26,6 +26,6 @@
   },
   "entrypoints": [
     "static/css/main.41ba3404.css",
-    "static/js/main.986124b9.js"
+    "static/js/main.cf5aaf38.js"
   ]
 }
