@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Training-social-network/static/css/main.41ba3404.css",
+    "main.css": "/Training-social-network/static/css/main.2c4b76a0.css",
     "main.js": "/Training-social-network/static/js/main.22fd1d72.js",
     "static/css/666.511eff6e.chunk.css": "/Training-social-network/static/css/666.511eff6e.chunk.css",
     "static/js/666.00997e2f.chunk.js": "/Training-social-network/static/js/666.00997e2f.chunk.js",
@@ -13,13 +13,13 @@
     "static/js/787.b5798159.chunk.js": "/Training-social-network/static/js/787.b5798159.chunk.js",
     "static/media/cog-outline.svg": "/Training-social-network/static/media/cog-outline.215b57431736498f94450247093f4556.svg",
     "static/media/account-multiple-outline.svg": "/Training-social-network/static/media/account-multiple-outline.faca0a7e28f8d0ad1d26fd3ba8594210.svg",
-    "static/media/playlist-music-outline.svg": "/Training-social-network/static/media/playlist-music-outline.2d6c9ed94e5be1b5b0014be02083ff99.svg",
     "index.html": "/Training-social-network/index.html",
+    "static/media/playlist-music-outline.svg": "/Training-social-network/static/media/playlist-music-outline.2d6c9ed94e5be1b5b0014be02083ff99.svg",
     "static/media/image-multiple-outline.svg": "/Training-social-network/static/media/image-multiple-outline.05594a1d1588ff2617c3c39c5f4f8e18.svg",
     "static/media/account-details-outline.svg": "/Training-social-network/static/media/account-details-outline.82831131491c3d1ee7854eb87ccdd22a.svg",
     "static/media/message-text-outline.svg": "/Training-social-network/static/media/message-text-outline.cfcd6801564f87f68200a08884931a33.svg",
     "static/media/newspaper-variant-outline.svg": "/Training-social-network/static/media/newspaper-variant-outline.7e91a0de03303cc7d2da2addcde6afc2.svg",
-    "main.41ba3404.css.map": "/Training-social-network/static/css/main.41ba3404.css.map",
+    "main.2c4b76a0.css.map": "/Training-social-network/static/css/main.2c4b76a0.css.map",
     "main.22fd1d72.js.map": "/Training-social-network/static/js/main.22fd1d72.js.map",
     "666.511eff6e.chunk.css.map": "/Training-social-network/static/css/666.511eff6e.chunk.css.map",
     "666.00997e2f.chunk.js.map": "/Training-social-network/static/js/666.00997e2f.chunk.js.map",
@@ -32,7 +32,7 @@
     "787.b5798159.chunk.js.map": "/Training-social-network/static/js/787.b5798159.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.41ba3404.css",
+    "static/css/main.2c4b76a0.css",
     "static/js/main.22fd1d72.js"
   ]
 }
