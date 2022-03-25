@@ -6,7 +6,7 @@ let NavbarItem = (props) => {
     return (
         <NavLink to={props.link} className={NavbarItemStyles.link}>
             <div className={NavbarItemStyles.wrapper}>
-                <img src={props.icoLink} alt="icon" />
+                <img src={props.icon} alt="icon" />
                 {props.name}
             </div>
         </NavLink >

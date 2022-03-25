@@ -1,6 +1,7 @@
 import React from "react";
 import profileInfoStyles from './ProfileInfo.module.css'
 import ProfileStatus from './ProfileStatus/ProfileStatus';
+import avatar from './../../../Icons/User-avatar.png'
 
 const ProfileInfo = props => {
     return (
@@ -10,7 +11,7 @@ const ProfileInfo = props => {
                     <img
                         src={props.profileInfo.photos.large
                             ? props.profileInfo.photos.large
-                            : '/User-avatar.png'}
+                            : avatar}
                         alt="avatar"
                         className={props.profileInfo.photos.large
                             ? ''
