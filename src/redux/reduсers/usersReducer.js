@@ -1,12 +1,12 @@
 import { usersAPI } from './../../api/api';
 
-const FOLLOW = 'FOLLOW'
-const UNFOLLOW = 'UNFOLLOW'
-const SET_USERS = 'SET_USERS'
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
-const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT'
-const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING'
-const TOGGLE_IS_FOLLOWING = 'TOGGLE_IS_FOLLOWING'
+const FOLLOW = 'users/FOLLOW'
+const UNFOLLOW = 'users/UNFOLLOW'
+const SET_USERS = 'users/SET_USERS'
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE'
+const SET_TOTAL_COUNT = 'users/SET_TOTAL_COUNT'
+const TOGGLE_IS_LOADING = 'users/TOGGLE_IS_LOADING'
+const TOGGLE_IS_FOLLOWING = 'users/TOGGLE_IS_FOLLOWING'
 
 const initialState = {
     users: [],
@@ -78,49 +78,37 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const follow = (id) => ({ type: FOLLOW, id })
-export const unfollow = (id) => ({ type: UNFOLLOW, id })
-export const setUsers = (users) => ({ type: SET_USERS, users })
+const follow = (id) => ({ type: FOLLOW, id })
+const unfollow = (id) => ({ type: UNFOLLOW, id })
+const setUsers = (users) => ({ type: SET_USERS, users })
+const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount })
+const toggleLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
+const toggleFollowing = (isFollowing, id) => ({ type: TOGGLE_IS_FOLLOWING, isFollowing, id })
 export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
-export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount })
-export const toggleLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
-export const toggleFollowing = (isFollowing, id) => ({ type: TOGGLE_IS_FOLLOWING, isFollowing, id })
 
-export const getUsers = (currentPage, count) => {
-    return (dispatch) => {
-        dispatch(toggleLoading(true))
-        usersAPI.getUsers(currentPage, count).then(data => {
-            dispatch(toggleLoading(false))
-            dispatch(setUsers(data.items))
-            dispatch(setTotalCount(data.totalCount))
-        })
-    }
+export const getUsers = (currentPage, count) => async dispatch => {
+    dispatch(toggleLoading(true))
+    const data = await usersAPI.getUsers(currentPage, count)
+    dispatch(toggleLoading(false))
+    dispatch(setUsers(data.items))
+    dispatch(setTotalCount(data.totalCount))
 }
 
-export const followUser = (id) => {
-    return (dispatch) => {
-        dispatch(toggleFollowing(true, id))
-        usersAPI.follow(id)
-            .then(resultCode => {
-                dispatch(toggleFollowing(false, id))
-                if (resultCode === 0) {
-                    dispatch(follow(id))
-                }
-            })
-    }
+
+export const followUser = (id) => async dispatch => {
+    dispatch(toggleFollowing(true, id))
+    const resultCode = await usersAPI.follow(id)
+    dispatch(toggleFollowing(false, id))
+    if (resultCode === 0) { dispatch(follow(id)) }
 }
 
-export const unfollowUser = (id) => {
-    return (dispatch) => {
-        dispatch(toggleFollowing(true, id))
-        usersAPI.unfollow(id)
-            .then(resultCode => {
-                dispatch(toggleFollowing(false, id))
-                if (resultCode === 0) {
-                    dispatch(unfollow(id))
-                }
-            })
-    }
+
+export const unfollowUser = (id) => async dispatch => {
+    dispatch(toggleFollowing(true, id))
+    const resultCode = await usersAPI.unfollow(id)
+    dispatch(toggleFollowing(false, id))
+    if (resultCode === 0) { dispatch(unfollow(id)) }
 }
+
 
 export default usersReducer

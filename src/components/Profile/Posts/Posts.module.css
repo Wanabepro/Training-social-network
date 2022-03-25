@@ -17,6 +17,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 10px;
+    background-color: rgba(255, 255, 255, 0.151);
+    border-radius: 5px;
 }
 
 

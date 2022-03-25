@@ -5,58 +5,32 @@ import { connect } from 'react-redux';
 import { login } from './../../redux/reduсers/authReducer';
 import { Redirect } from 'react-router-dom';
 import { required, emailValidator } from './../../Common/Validation/Validators';
-import { Input } from './../../Common/Validation/FormControls';
+import { Input, createField } from './../../Common/Validation/FormControls';
 
 const Form = (props) => {
     return (
         <div className={loginStyles.container}>
             <form onSubmit={props.handleSubmit}>
-                <div>
-                    <Field
-                        name={"email"}
-                        placeholder='E-mail'
-                        validate={[required, emailValidator]}
-                        component={Input}
-                    />
-                </div>
-                <div>
-                    <Field
-                        name={"password"}
-                        placeholder='Password'
-                        validate={[required]}
-                        component={Input}
-                        type={"password"}
-                    />
-                </div>
+                {createField('email', Input, { placeholder: 'E-mail', validate: [required, emailValidator] })}
+                {createField('password', Input, { placeholder: 'Password', validate: [required], type: 'password' })}
                 <div className={loginStyles.checkboxWrapper}>
-                    <Field
-                        className={loginStyles.checkbox}
-                        name={"rememberMe"}
-                        component={"input"}
-                        type='checkbox'
-                    />
-                    <div>
-                        Remember me
-                    </div>
+                    <Field className={loginStyles.checkbox} name={"rememberMe"} component={"input"} type='checkbox' />
+                    <div> Remember me </div>
                 </div>
+
                 {props.error
-                    ? <div className={loginStyles.summaryError}>
-                        {props.error}
-                    </div>
+                    ? <div className={loginStyles.summaryError}> {props.error} </div>
                     : undefined
                 }
+
                 {props.captchaURL
                     ? <div className={loginStyles.captcha}>
                         <img src={props.captchaURL} alt="captcha" />
-                        <Field
-                            className={loginStyles.captchaInput}
-                            name={"captcha"}
-                            validate={[required]}
-                            component={Input}
-                        />
+                        {createField('captcha', Input, { className: loginStyles.captchaInput, validate: [required] })}
                     </div>
                     : undefined
                 }
+
                 <div className={loginStyles.Button}>
                     <button>Log In</button>
                 </div>
@@ -68,18 +42,12 @@ const Form = (props) => {
 const LoginForm = reduxForm({ form: 'login' })(Form)
 
 
-const Login = (props) => {
-    const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
-    }
+const Login = props => {
+    const onSubmit = formData => { props.login(formData.email, formData.password, formData.rememberMe, formData.captcha) }
 
     return props.isAuth
         ? <Redirect to={`/profile/${props.authorizedUserID}`} />
-        : <LoginForm
-            onSubmit={onSubmit}
-            login={props.login}
-            captchaURL={props.captchaURL}
-        />
+        : <LoginForm onSubmit={onSubmit} login={props.login} captchaURL={props.captchaURL} />
 }
 
 const mapStateToProps = (state) => ({

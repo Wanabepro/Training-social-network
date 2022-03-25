@@ -20,11 +20,14 @@ class ProfileContainer extends React.PureComponent {
     }
 
     render() {
+        const authorizedUserProfile = this.props.authorizedUserID === Number(this.props.match.params.id)
+
         return (
             <Profile profileInfo={this.props.profileInfo}
                 status={this.props.status}
                 updateStatus={this.props.updateStatus}
                 isLoading={this.props.isLoading}
+                authorizedUserProfile={authorizedUserProfile}
             />
         )
     }

@@ -1,9 +1,9 @@
 import { profileAPI } from './../../api/api';
 
-const SET_PROFILE_INFO = 'SET_PROFILE_INFO'
-const SEND_POST = 'SEND_POST'
-const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING'
-const SET_STATUS = 'SET_STATUS'
+const SET_PROFILE_INFO = 'profile/SET_PROFILE_INFO'
+const SEND_POST = 'profile/SEND_POST'
+const TOGGLE_IS_LOADING = 'profile/TOGGLE_IS_LOADING'
+const SET_STATUS = 'profile/SET_STATUS'
 
 const initialState = {
     profileInfo: null,
@@ -62,32 +62,21 @@ const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
 const setStatus = (status) => ({ type: SET_STATUS, status })
 export const sendPost = (newPost) => ({ type: SEND_POST, newPost })
 
-export const getProfile = (id) => {
-    return (dispatch) => {
-        dispatch(toggleIsLoading(true))
-        profileAPI.getProfile(id).then(data => {
-            dispatch(toggleIsLoading(false))
-            dispatch(setProfileInfo(data))
-        })
-    }
+export const getProfile = id => async dispatch => {
+    dispatch(toggleIsLoading(true))
+    const data = await profileAPI.getProfile(id)
+    dispatch(toggleIsLoading(false))
+    dispatch(setProfileInfo(data))
 }
 
-export const getStatus = (id) => {
-    return (dispatch) => {
-        profileAPI.getStatus(id).then(status => {
-            dispatch(setStatus(status))
-        })
-    }
+export const getStatus = id => async dispatch => {
+    const status = await profileAPI.getStatus(id)
+    dispatch(setStatus(status))
 }
 
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then(resultCode => {
-            if (resultCode === 0) {
-                dispatch(setStatus(status))
-            }
-        })
-    }
+export const updateStatus = status => async dispatch => {
+    const resultCode = await profileAPI.updateStatus(status)
+    if (resultCode === 0) { dispatch(setStatus(status)) }
 }
 
 export default profileReducer

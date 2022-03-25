@@ -11,7 +11,7 @@ const Profile = React.memo(
         }
         else return (
             <div className={profileStyles.wrapper}>
-                <ProfileInfo profileInfo={props.profileInfo} status={props.status} updateStatus={props.updateStatus} />
+                <ProfileInfo profileInfo={props.profileInfo} status={props.status} updateStatus={props.updateStatus} authorizedUserProfile={props.authorizedUserProfile}/>
                 <PostsContainer />
             </div>
         )

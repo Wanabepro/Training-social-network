@@ -18,7 +18,7 @@ const ProfileStatus = props => {
                     onChange={(e) => changeStatus(e.currentTarget.value)}
                     value={status}
                 />
-                : <span onClick={() => toggleIsEdit(true)}>
+                : <span onClick={props.authorizedUserProfile ? () => toggleIsEdit(true) : undefined}>
                     {props.status || 'Добавьте статус'}
                 </span>
             }

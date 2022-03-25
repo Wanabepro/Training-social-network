@@ -22,7 +22,7 @@ const ProfileInfo = props => {
                     <ul>
                         <li>Ищу работу: {props.profileInfo.lookingForAJob ? 'да' : 'нет'}</li>
                         <li>{props.profileInfo.lookingForAJobDescription}</li>
-                        <li><ProfileStatus status={props.status} updateStatus={props.updateStatus} /></li>
+                        <li><ProfileStatus status={props.status} updateStatus={props.updateStatus} authorizedUserProfile={props.authorizedUserProfile}/></li>
                     </ul>
                 </div>
             </div>
