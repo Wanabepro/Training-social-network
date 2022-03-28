@@ -42,7 +42,7 @@ class App extends React.Component {
             <Route exact path='/images' render={withSuspence(Images)} />
             <Route exact path='/music' render={withSuspence(Music)} />
             <Route exact path='/news' render={withSuspence(News)} />
-            <Route exact path='/settings' render={withSuspence(Settings)} />
+            <Route exact path='/settings/:settingName?' render={withSuspence(Settings)} />
             <Route exact path='/login' render={withSuspence(Login)} />
           </div>
         </div>
@@ -58,5 +58,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   connect(mapStateToProps, { initialize }),
-  withRouter
+  withRouter,
 )(App)

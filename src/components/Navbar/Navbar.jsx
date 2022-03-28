@@ -13,13 +13,13 @@ import settingsIcon from './../../Icons/SidebarIcons/cog-outline.svg'
 
 const Navbar = props => {
     const items = [
-        { id: 1, name: 'Profile', link: `/profile/${props.authUserID}`, icon: profileIcon },
-        { id: 2, name: 'Users', link: '/users', icon: usersIcon },
-        { id: 3, name: 'Messages', link: '/messages', icon: messagesIcon },
-        { id: 4, name: 'Images', link: '/images', icon: imagesIcon },
-        { id: 5, name: 'Music', link: '/music', icon: musicIcon },
-        { id: 6, name: 'News', link: '/news', icon: newsIcon },
-        { id: 7, name: 'Settings', link: '/settings', icon: settingsIcon }
+        { id: 'mainNav1', name: 'Profile', link: `/profile/${props.authUserID}`, icon: profileIcon },
+        { id: 'mainNav2', name: 'Users', link: '/users', icon: usersIcon },
+        { id: 'mainNav3', name: 'Messages', link: '/messages', icon: messagesIcon },
+        { id: 'mainNav4', name: 'Images', link: '/images', icon: imagesIcon },
+        { id: 'mainNav5', name: 'Music', link: '/music', icon: musicIcon },
+        { id: 'mainNav6', name: 'News', link: '/news', icon: newsIcon },
+        { id: 'mainNav7', name: 'Settings', link: '/settings', icon: settingsIcon }
     ]
 
     const NavbarItems = items.map(navbarItem =>

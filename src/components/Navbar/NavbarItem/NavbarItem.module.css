@@ -8,11 +8,11 @@
 }
 
 .wrapper {
-    height: 100%;
     display: flex;
     align-items: сenter;
     margin-bottom: 5px;
     padding: 5px;
+    white-space: nowrap
 }
 
 .wrapper img {
@@ -21,7 +21,8 @@
 }
 
 .active .wrapper{
-    background-color: aqua;
+    background-color: rgba(255, 255, 255, 0.151);
+    border-radius: 5px;
 }
 
 .text {

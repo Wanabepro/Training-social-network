@@ -39,7 +39,7 @@ const Form = (props) => {
     )
 }
 
-const LoginForm = reduxForm({ form: 'login' })(Form)
+const LoginForm = reduxForm({ form: 'personalData' })(Form)
 
 
 const Login = props => {

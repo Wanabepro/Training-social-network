@@ -79,4 +79,14 @@ export const updateStatus = status => async dispatch => {
     if (resultCode === 0) { dispatch(setStatus(status)) }
 }
 
+export const updateProfile = (userId, data) => async dispatch => {
+    const requestData = {
+        userId,
+        ...data,
+        contacts: { ...data.contacts }
+    }
+    const resultCode = await profileAPI.updateProfile(requestData)
+    // if (resultCode === 0) { dispatch(setProfileInfo(data)) }
+}
+
 export default profileReducer

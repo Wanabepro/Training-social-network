@@ -35,6 +35,15 @@
     border: none;
     width: 85%;
     height: 50px;
+    scrollbar-width: none;
+}
+
+.addPost form textarea::-webkit-scrollbar {
+    width: 0px;
+}
+
+.addPost form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.755);
 }
 
 .Button {

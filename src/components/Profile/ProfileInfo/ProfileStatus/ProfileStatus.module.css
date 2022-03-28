@@ -1,3 +1,24 @@
 input {
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 0.8em;
 }
+
+span {
+    height: 20px;
+    font-size: 0.8em;
+    box-sizing: border-box;
+    padding: 2px;
+    line-height: 20px;
+    border-radius: 2.5px;
+}
+
+.authorized:hover {
+    background-color: rgba(255, 255, 255, 0.151);
+}
+

@@ -1,4 +1,5 @@
 import React from "react";
+import { withAuthRedirect } from './../../HOC/withAuthRedirect';
 
 const Images = () => {
     return(
@@ -8,4 +9,4 @@ const Images = () => {
     )
 }
 
-export default Images
+export default withAuthRedirect(Images)

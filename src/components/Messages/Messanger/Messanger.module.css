@@ -12,6 +12,11 @@
 
 .messages {
     overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.messages::-webkit-scrollbar {
+    width: 0px;
 }
 
 .addMessage {
@@ -44,7 +49,16 @@
     border: none;
     width: 83%;
     height: 50px;
+    scrollbar-width: none;
 } 
+
+.addMessage form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.755);
+}
+
+.addMessage form textarea::-webkit-scrollbar {
+    width: 0px;
+}
 
 .Button {
     margin: auto 0 auto 0;

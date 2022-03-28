@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+}
+
+.textBefore {
+    width: 300px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.fieldDiv {
+    width: 100%;
+}
+
+.fieldDiv input{
+    width: 100%;
+}

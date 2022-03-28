@@ -1,11 +1,12 @@
 import React from "react";
+import { withAuthRedirect } from './../../HOC/withAuthRedirect';
 
 const News = () => {
-    return(
+    return (
         <div>
             Here will be news
         </div>
     )
 }
 
-export default News
+export default withAuthRedirect(News)

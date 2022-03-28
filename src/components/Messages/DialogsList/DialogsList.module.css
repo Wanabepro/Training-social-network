@@ -4,4 +4,9 @@
     height: 100%;
     border-radius: 5px;
     overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+    width: 0px;
 }

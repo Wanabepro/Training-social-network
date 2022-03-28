@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 let NavbarItem = (props) => {
     return (
-        <NavLink to={props.link} className={NavbarItemStyles.link}>
+        <NavLink to={props.link} className={NavbarItemStyles.link} activeClassName={NavbarItemStyles.active}>
             <div className={NavbarItemStyles.wrapper}>
-                <img src={props.icon} alt="icon" />
+                {props.icon === null ? undefined : <img src={props.icon} alt="icon" />}
                 {props.name}
             </div>
         </NavLink >

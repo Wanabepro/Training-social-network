@@ -51,7 +51,6 @@ export const authorizeUser = () => async dispatch => {
     }
 }
 
-
 const getPhoto = (id) => async dispatch => {
     const photo = await authAPI.getUserPhoto(id)
     dispatch(setPhoto(photo))

@@ -35,6 +35,10 @@ export const profileAPI = {
     updateStatus(status) {
         return instance.put(`profile/status`, { status })
             .then(response => { return response.data.resultCode })
+    },
+    updateProfile(data) {
+        return instance.put('/profile', data)
+            .then(response => { return response.data.resultCode })
     }
 }
 
@@ -55,6 +59,6 @@ export const authAPI = {
     },
     getCaptchaURL() {
         return instance.get('security/get-captcha-url')
-        .then(response => {return response.data.url})
+            .then(response => { return response.data.url })
     }
 }

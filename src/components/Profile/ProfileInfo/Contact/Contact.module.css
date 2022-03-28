@@ -1,0 +1,16 @@
+.contact {
+    margin-left: 5px;
+    box-sizing: border-box;
+    padding: 2px;
+    border-radius: 2.5px;
+    cursor: pointer;
+
+}
+
+.contact:hover {
+    background-color: rgba(255, 255, 255, 0.151);
+}
+
+.contact img {
+    margin-top: 3px;
+}

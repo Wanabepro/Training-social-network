@@ -1,0 +1,52 @@
+.container {
+    width: 100%;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+}
+
+.checkboxWrapper {
+    display: flex;
+}
+
+.checkboxWrapper div {
+    width: 300px;
+    margin-right: 10px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.checkboxWrapper div:last-child {
+    width: 100%;
+    text-align: left;
+}
+
+.checkboxWrapper input {
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+
+.Bold {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.462);
+}
+
+.Button button {
+    width: 100%;
+    height: 2em;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Button button:hover {
+    background-color: rgba(255, 255, 255, 0.673);
+}
