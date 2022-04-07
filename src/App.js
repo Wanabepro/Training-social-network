@@ -38,6 +38,7 @@ class App extends React.Component {
             <Navbar />
           </div>
           <div className={appStyles.contentWrapper}>
+            <Redirect exact from="/" to={`/profile/${this.props.authorizedUserId}`} />
             <Route exact path='/profile/:id' render={() => <ProfileContainer />} />
             <Route exact path='/users' render={() => <UsersContainer />} />
             <Route path='/messages' render={withSuspence(MessagesContainer)} />
