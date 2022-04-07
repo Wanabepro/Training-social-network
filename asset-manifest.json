@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Training-social-network/static/css/main.f033d5e6.css",
-    "main.js": "/Training-social-network/static/js/main.d9019df5.js",
+    "main.css": "/Training-social-network/static/css/main.c35e9817.css",
+    "main.js": "/Training-social-network/static/js/main.332b4d78.js",
     "static/css/666.6f76aa58.chunk.css": "/Training-social-network/static/css/666.6f76aa58.chunk.css",
     "static/js/666.00997e2f.chunk.js": "/Training-social-network/static/js/666.00997e2f.chunk.js",
-    "static/css/294.c88fa944.chunk.css": "/Training-social-network/static/css/294.c88fa944.chunk.css",
-    "static/js/294.7b614c54.chunk.js": "/Training-social-network/static/js/294.7b614c54.chunk.js",
+    "static/css/294.7bc3c22a.chunk.css": "/Training-social-network/static/css/294.7bc3c22a.chunk.css",
+    "static/js/294.3e195d97.chunk.js": "/Training-social-network/static/js/294.3e195d97.chunk.js",
     "static/js/623.479985b4.chunk.js": "/Training-social-network/static/js/623.479985b4.chunk.js",
     "static/js/940.95703137.chunk.js": "/Training-social-network/static/js/940.95703137.chunk.js",
     "static/js/120.2c2d4e7c.chunk.js": "/Training-social-network/static/js/120.2c2d4e7c.chunk.js",
-    "static/css/568.21164cf8.chunk.css": "/Training-social-network/static/css/568.21164cf8.chunk.css",
-    "static/js/568.6a947166.chunk.js": "/Training-social-network/static/js/568.6a947166.chunk.js",
+    "static/css/279.1496b768.chunk.css": "/Training-social-network/static/css/279.1496b768.chunk.css",
+    "static/js/279.370bd5a5.chunk.js": "/Training-social-network/static/js/279.370bd5a5.chunk.js",
     "static/js/787.b5798159.chunk.js": "/Training-social-network/static/js/787.b5798159.chunk.js",
     "static/media/cog-outline.svg": "/Training-social-network/static/media/cog-outline.215b57431736498f94450247093f4556.svg",
     "static/media/account-multiple-outline.svg": "/Training-social-network/static/media/account-multiple-outline.faca0a7e28f8d0ad1d26fd3ba8594210.svg",
@@ -29,21 +29,21 @@
     "static/media/message-text-outline.svg": "/Training-social-network/static/media/message-text-outline.cfcd6801564f87f68200a08884931a33.svg",
     "static/media/newspaper-variant-outline.svg": "/Training-social-network/static/media/newspaper-variant-outline.7e91a0de03303cc7d2da2addcde6afc2.svg",
     "static/media/application-outline.svg": "/Training-social-network/static/media/application-outline.08d30454d80751e1e61523073df9eb55.svg",
-    "main.f033d5e6.css.map": "/Training-social-network/static/css/main.f033d5e6.css.map",
-    "main.d9019df5.js.map": "/Training-social-network/static/js/main.d9019df5.js.map",
+    "main.c35e9817.css.map": "/Training-social-network/static/css/main.c35e9817.css.map",
+    "main.332b4d78.js.map": "/Training-social-network/static/js/main.332b4d78.js.map",
     "666.6f76aa58.chunk.css.map": "/Training-social-network/static/css/666.6f76aa58.chunk.css.map",
     "666.00997e2f.chunk.js.map": "/Training-social-network/static/js/666.00997e2f.chunk.js.map",
-    "294.c88fa944.chunk.css.map": "/Training-social-network/static/css/294.c88fa944.chunk.css.map",
-    "294.7b614c54.chunk.js.map": "/Training-social-network/static/js/294.7b614c54.chunk.js.map",
+    "294.7bc3c22a.chunk.css.map": "/Training-social-network/static/css/294.7bc3c22a.chunk.css.map",
+    "294.3e195d97.chunk.js.map": "/Training-social-network/static/js/294.3e195d97.chunk.js.map",
     "623.479985b4.chunk.js.map": "/Training-social-network/static/js/623.479985b4.chunk.js.map",
     "940.95703137.chunk.js.map": "/Training-social-network/static/js/940.95703137.chunk.js.map",
     "120.2c2d4e7c.chunk.js.map": "/Training-social-network/static/js/120.2c2d4e7c.chunk.js.map",
-    "568.21164cf8.chunk.css.map": "/Training-social-network/static/css/568.21164cf8.chunk.css.map",
-    "568.6a947166.chunk.js.map": "/Training-social-network/static/js/568.6a947166.chunk.js.map",
+    "279.1496b768.chunk.css.map": "/Training-social-network/static/css/279.1496b768.chunk.css.map",
+    "279.370bd5a5.chunk.js.map": "/Training-social-network/static/js/279.370bd5a5.chunk.js.map",
     "787.b5798159.chunk.js.map": "/Training-social-network/static/js/787.b5798159.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f033d5e6.css",
-    "static/js/main.d9019df5.js"
+    "static/css/main.c35e9817.css",
+    "static/js/main.332b4d78.js"
   ]
 }
