@@ -1,5 +1,7 @@
 .sidebar {
-    width: 150px;
+    min-width: fit-content;
+    width: 11.5%;
+    max-width: 15%;
     margin-right: 10px;
 }
 

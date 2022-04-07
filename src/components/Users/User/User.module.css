@@ -8,11 +8,41 @@
     padding: 10px;
     margin-bottom: 15px;
     width: 100%;
+    min-width: fit-content;
+}
+
+.left {
+    width: 10%;
+    min-width: fit-content;
+}
+
+.avatar {
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.151);
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 100%;
+}
+
+.avatar img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 85%;
+    width: 85%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.151);
+    margin: auto;
+    object-fit: cover;
 }
 
 .Button {
     margin: 10px 0 auto 0;
-    height: 30px; 
     width: 100%;
 }
 
@@ -21,6 +51,7 @@
 }
 
 .Button button {
+    font-size: calc(11px + 5 * 100vw / 1280);
     border: none;
     outline: none;
     color: #fff;
@@ -30,29 +61,11 @@
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 5px;
 }
 
 .Button button:disabled {
     color: #274a55;
-}
-
-.avatar {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.151);
-    display: flex;
-    cursor: pointer;
-}
-
-.avatar img {
-    display: block;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.151);
-    margin: auto;
-    object-fit: cover;
 }
 
 .info {
@@ -61,13 +74,23 @@
     padding: 0 10px;
 }
 
-
-.location {
-    display: flex;
-    align-content: center;
+.info p {
+    font-size: calc(11px + 5 * 100vw / 1280);
 }
 
-.citi p{
-    display: block;
-    margin: auto;
+.info h2 {
+    font-size: calc(16px + 14 * 100vw / 1280);
+    margin: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@media (max-width: 767px) {
+    .info h2 {
+        font-size: calc(16px +  1.7 * 14 * (100vw - 320px) / 1280);
+    }
+
+    .info p, .Button button {
+        font-size: calc(11px + 1.7 * 5 * (100vw - 320px) / 1280);
+    }
 }

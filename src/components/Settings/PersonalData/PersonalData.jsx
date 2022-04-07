@@ -6,6 +6,9 @@ import createFieldForPersonalDataSettings from './FieldCreator/FieldCreator'
 import { connect } from 'react-redux';
 import { getProfile } from "../../../redux/reduсers/profileReducer";
 import { updateProfile } from './../../../redux/reduсers/profileReducer';
+import { required } from './../../../Common/Validation/Validators';
+import Preloader from './../../../Common/Preloader/Preloader';
+
 
 const Form = props => {
     return (
@@ -18,8 +21,8 @@ const Form = props => {
                     </div>
                 </div>
                 {createFieldForPersonalDataSettings('Describe your skills shortly', 'lookingForAJobDescription', Input)}
-                {createFieldForPersonalDataSettings('Enter your name or nickname', 'fullName', Input)}
-                {createFieldForPersonalDataSettings('About you', 'aboutMe', Input)}
+                {createFieldForPersonalDataSettings('Enter your name or nickname', 'fullName', Input, { validate: [required] })}
+                {createFieldForPersonalDataSettings('About you', 'aboutMe', Input, { validate: [required] })}
                 <div className={styles.Bold}>Your links to other social networks:</div>
                 {createFieldForPersonalDataSettings('GitHub:', 'contacts.github', Input)}
                 {createFieldForPersonalDataSettings('VK:', 'contacts.vk', Input)}
@@ -29,6 +32,10 @@ const Form = props => {
                 {createFieldForPersonalDataSettings('YouTube:', 'contacts.youtube', Input)}
                 {createFieldForPersonalDataSettings('Landing:', 'contacts.website', Input)}
                 {createFieldForPersonalDataSettings('Best way to contact you?', 'contacts.mainLink', Input)}
+                {props.error
+                    ? <div className={styles.summaryError}> {props.error} </div>
+                    : undefined
+                }
                 <div className={styles.Button}>
                     <button>Submit</button>
                 </div>
@@ -42,6 +49,7 @@ const PersonalDataForm = reduxForm({ form: 'personalDataForm' })(Form)
 const PersonalData = props => {
     const onSubmit = formData => {
         props.updateProfile(props.authorizedUserId, formData)
+        props.getProfile(props.authorizedUserId)
     }
 
     const [userData, setUserData] = useState()
@@ -50,7 +58,8 @@ const PersonalData = props => {
         if (props.profileInfo !== null) return setUserData(props.profileInfo)
         props.getProfile(props.authorizedUserId)
     }, [props.profileInfo])
-
+    
+    if (props.isLoading) return <Preloader />
     return (
         <div className={styles.container}>
             <PersonalDataForm initialValues={userData} onSubmit={onSubmit} />
@@ -60,7 +69,8 @@ const PersonalData = props => {
 
 const mapStateToProps = state => ({
     authorizedUserId: state.auth.id,
-    profileInfo: state.profilePage.profileInfo
+    profileInfo: state.profilePage.profileInfo,
+    isLoading: state.profilePage.isLoading
 })
 
 export default connect(mapStateToProps, { getProfile, updateProfile })(PersonalData)

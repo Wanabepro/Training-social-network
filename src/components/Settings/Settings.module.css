@@ -4,13 +4,64 @@
     justify-content: space-between;
 }
 
+.spoiler{
+    background-color: rgba(255, 255, 255, 0.151);
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.spoilerButton {
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: solid 2px rgba(255, 255, 255, 0.151);
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    border-left: solid 5px rgba(255, 255, 255, 0.68);
+    border-top: solid 5px rgba(255, 255, 255, 0.68);
+    border-radius: 2px;
+    rotate: -135deg;
+    transition: all 0.3s;
+}
+
+.activeArrow {
+    top: 11px;
+    rotate: 45deg;
+}
+
+.buttonText {
+    margin-left: 25px;
+}
+
 .content {
-    width: 100%;
+    height: fit-content;
+    width: calc(100% - 135px);
     background-color: rgba(255, 255, 255, 0.151);
     border-radius: 5px;
     box-sizing: border-box;
     padding: 15px;
-    margin-right: 10px;
+}
+
+.spoilerSettings {
+    display: none;
+    height: 0;
+    transition: all 0.3s;
+}
+
+.active {
+    display: block;
+    height: fit-content;
 }
 
 .settingsNav {
@@ -19,4 +70,22 @@
     padding: 10px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.151);
+}
+
+@media (max-width: 767px) {
+    .container{
+        display: block;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .settingsNav {
+        display: none;
+    }
+
+    .spoiler {
+        display: block;
+    }
 }

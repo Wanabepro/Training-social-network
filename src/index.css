@@ -50,6 +50,10 @@ h1, h2 {
   vertical-align: baseline;
 }
 
+p {
+  margin: 0
+}
+
 div {
   margin: 0;
 	padding: 0;

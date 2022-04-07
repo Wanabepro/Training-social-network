@@ -26,9 +26,6 @@ const User = (props) => {
                 <h2>{props.user.name}</h2>
                 <p>{props.user.status}</p>
             </div>
-            <div className={userStyles.location}>
-                <p>Страна,<br />Город</p>
-            </div>
         </div>
     )
 }

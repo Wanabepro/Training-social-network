@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProfileStatusStyles from './ProfileStatus.module.css'
+import styles from './ProfileStatus.module.css'
 
 const ProfileStatus = props => {
     let [isEdit, toggleIsEdit] = useState(false)
@@ -10,6 +10,7 @@ const ProfileStatus = props => {
         <>
             {isEdit
                 ? <input
+                    className={styles.InputField}
                     autoFocus={true}
                     onBlur={() => {
                         toggleIsEdit(false)
@@ -18,7 +19,7 @@ const ProfileStatus = props => {
                     onChange={(e) => changeStatus(e.currentTarget.value)}
                     value={status}
                 />
-                : <span className={props.authorizedUserProfile ? ProfileStatusStyles.authorized : undefined} 
+                : <span className={props.authorizedUserProfile ? styles.authorized : styles.status} 
                         onClick={props.authorizedUserProfile ? () => toggleIsEdit(true) : undefined}>
                     {props.status || 'Добавьте статус'}
                 </span>

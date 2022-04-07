@@ -1,4 +1,5 @@
 import { profileAPI } from './../../api/api';
+import { stopSubmit } from 'redux-form';
 
 const SET_PROFILE_INFO = 'profile/SET_PROFILE_INFO'
 const SEND_POST = 'profile/SEND_POST'
@@ -80,13 +81,18 @@ export const updateStatus = status => async dispatch => {
 }
 
 export const updateProfile = (userId, data) => async dispatch => {
+    dispatch(toggleIsLoading(true))
     const requestData = {
         userId,
         ...data,
         contacts: { ...data.contacts }
     }
-    const resultCode = await profileAPI.updateProfile(requestData)
-    // if (resultCode === 0) { dispatch(setProfileInfo(data)) }
+    const response = await profileAPI.updateProfile(requestData)
+    if (response.resultCode !== 0) {
+        const message = response.messages.length > 0 ? response.messages[0] : 'Unexpected error'
+        dispatch(stopSubmit('personalDataForm', { _error: message }))
+    }
+    dispatch(toggleIsLoading(false))
 }
 
 export default profileReducer

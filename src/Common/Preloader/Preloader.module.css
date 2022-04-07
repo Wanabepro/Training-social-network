@@ -1,6 +1,5 @@
 .preloader {
-    position: absolute;
-    width: 860.867px;
+    width: 100%;
     height: 268px;
     z-index: 1001;
     background: #274a55;

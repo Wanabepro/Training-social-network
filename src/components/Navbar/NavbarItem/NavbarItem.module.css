@@ -3,22 +3,22 @@
     border-radius: 5px;
 }
 
-.wrapper :hover {
-    background-color: rgba(255, 255, 255, 0);
-}
-
 .wrapper {
     display: flex;
-    align-items: сenter;
     margin-bottom: 5px;
     padding: 5px;
-    white-space: nowrap
+    white-space: nowrap;
+}
+
+.wrapper :hover {
+    background: transparent;
 }
 
 .wrapper img {
     display: block;
     margin-right: 10px;
 }
+
 
 .active .wrapper{
     background-color: rgba(255, 255, 255, 0.151);

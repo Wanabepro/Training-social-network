@@ -6,8 +6,99 @@ header {
   width: 100%;
   height: 50px;
   background-color: rgb(4, 30, 48);
+  z-index: 3;
   color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.burger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: auto 0;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .burger {
+    z-index: 3;
+    display: block;
   }
+}
+
+.burger::before,
+.burger::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 1px;
+  transition: all 0.3s;
+}
+
+.burger::before {
+  top: 0;
+}
+
+.burger::after {
+  bottom: 0;
+}
+
+.burger span {
+  position: absolute;
+  top: 8.5px;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 1px;
+  transition: all 0.3s;
+}
+
+.active::before {
+  rotate: 45deg;
+  top: 8.5px;
+}
+
+.active::after {
+  rotate: -45deg;
+  bottom: 8.5px;
+}
+
+.active span {
+  transform: scale(0);
+}
+
+.menu {
+  overflow: hidden;
+  position: fixed;
+  box-sizing: border-box;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #041E30;
+  padding-top: 10px;
+  border-top: solid 2px #2A4050;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+
+.activeMenu {
+  overflow: auto;
+  top: 50px;
+}
 
 .logo {
   height: 30px;
@@ -18,10 +109,22 @@ header {
   padding: 0;
 }
 
+@media (max-width: 767px) {
+  .logo {
+      display: none;
+  }
+}
+
 .p {
   margin-left: 10px;
   text-align: left;
   line-height: 40px;
+}
+
+@media (max-width: 767px) {
+  .p {
+      display: none;
+  }
 }
 
 .login {

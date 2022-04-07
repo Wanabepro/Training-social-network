@@ -1,8 +1,21 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styles from './Paginator.module.css'
 
 const Paginator = ({ totalCount, count, currentPage, onPageChange }) => {
-    const portionSize = 25
+    let [windowWidth, setWindowWidth] = useState(window.screen.width)
+
+    const resizeHandler = () => {
+        setWindowWidth(window.screen.width)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', resizeHandler)
+        return () => window.removeEventListener('resize', resizeHandler)
+    }, [])
+
+    const portionSize = windowWidth < 1280
+        ? Math.ceil(windowWidth / 1280 * 25)
+        : 25
     const portionsCount = Math.ceil(totalCount / count / portionSize)
     const currentPortion = Math.ceil(currentPage / portionSize)
     const leftPortionLim = (currentPortion - 1) * portionSize + 1
@@ -16,7 +29,7 @@ const Paginator = ({ totalCount, count, currentPage, onPageChange }) => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.portionsInfo}>{`${currentPortion}/${portionsCount}`}</div>
             <div className={styles.pagination}>
                 <div

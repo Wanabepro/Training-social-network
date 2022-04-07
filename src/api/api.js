@@ -38,7 +38,7 @@ export const profileAPI = {
     },
     updateProfile(data) {
         return instance.put('/profile', data)
-            .then(response => { return response.data.resultCode })
+            .then(response => { return response.data})
     }
 }
 

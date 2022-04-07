@@ -1,3 +1,6 @@
+.container {
+    width: 100%;
+}
 .portionsInfo {
     color: rgba(255, 255, 255, 0.319);
     font-size: 0.8em;
@@ -47,9 +50,9 @@
 .page {
     color: #fff;
     cursor: pointer;
-    width: 3%;
     border-radius: 5px;
     text-align: center;
+    padding: 0 2px;
 }
 
 .page:hover {

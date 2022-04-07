@@ -1,6 +1,6 @@
 import appStyles from './App.module.css';
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -34,7 +34,9 @@ class App extends React.Component {
       <div className={appStyles.App}>
         <HeaderContainer />
         <div className={appStyles.bodyWrapper}>
-          <Navbar />
+          <div className={appStyles.sidebar}>
+            <Navbar />
+          </div>
           <div className={appStyles.contentWrapper}>
             <Route exact path='/profile/:id' render={() => <ProfileContainer />} />
             <Route exact path='/users' render={() => <UsersContainer />} />
@@ -53,7 +55,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  initialized: state.app.initialized
+  initialized: state.app.initialized,
+  authorizedUserId: state.auth.id
 })
 
 export default compose(

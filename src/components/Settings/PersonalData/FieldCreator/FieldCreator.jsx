@@ -6,7 +6,7 @@ export const createFieldForPersonalDataSettings = (textBefore, name, component, 
     return (
         <div className={styles.wrapper}>
             <div className={styles.textBefore}>
-                {textBefore}
+                <span>{textBefore}</span>
             </div>
             <div className={styles.fieldDiv}>
                 <Field

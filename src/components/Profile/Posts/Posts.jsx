@@ -26,14 +26,8 @@ const Posts = props => {
     }
 
     let posts = props.posts.map(post =>
-        <Post
-            key={post.id}
-            id={post.id}
-            name={post.name}
-            avatarLink={post.avatarLink}
-            text={post.text}
-            likesCount={post.likesCount}
-        />)
+        <Post key={post.id} id={post.id} name={post.name} avatarLink={post.avatarLink} text={post.text} likesCount={post.likesCount} />
+    )
 
     return (
         <div className={postsStyles.wrappaer}>

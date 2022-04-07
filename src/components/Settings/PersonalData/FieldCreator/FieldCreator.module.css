@@ -1,17 +1,34 @@
 .wrapper {
     display: flex;
+    justify-content: space-between;
 }
 
 .textBefore {
-    width: 300px;
+    width: calc(50% - 30px);
+    font-size: calc(10px + 6 * 100vw / 1280);
     text-align: right;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .fieldDiv {
-    width: 100%;
+    width: 50%;
+    margin-bottom: 10px;
 }
 
 .fieldDiv input{
     width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: calc(10px + 6 * 100vw / 1280);
+    background-color: rgba(255, 255, 255, 0.151);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+@media (max-width: 767px) {
+    .textBefore, .fieldDiv input {
+        font-size: calc(10px +  1.7 * 6 * (100vw - 320px) / 1280);
+    }
 }

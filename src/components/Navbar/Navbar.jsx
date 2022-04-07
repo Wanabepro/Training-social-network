@@ -23,12 +23,7 @@ const Navbar = props => {
     ]
 
     const NavbarItems = items.map(navbarItem =>
-        <NavbarItem
-            key={navbarItem.id}
-            name={navbarItem.name}
-            link={navbarItem.link}
-            icon={navbarItem.icon}
-        />)
+        <NavbarItem key={navbarItem.id} name={navbarItem.name} link={navbarItem.link} icon={navbarItem.icon} />)
 
     return (
         <nav className={NavbbarStyles.sidebar}>

@@ -8,10 +8,9 @@ const ProfileInfo = props => {
     return (
         <div className={profileInfoStyles.container}>
             <div className={profileInfoStyles.photo}>
-                <img
-                    src={props.profileInfo.photos.large
-                        ? props.profileInfo.photos.large
-                        : avatar}
+                <img src={props.profileInfo.photos.large
+                    ? props.profileInfo.photos.large
+                    : avatar}
                     alt="avatar"
                     className={props.profileInfo.photos.large
                         ? ''

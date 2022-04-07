@@ -1,22 +1,24 @@
 import React from "react";
-import postStyles from './Post.module.css'
+import styles from './Post.module.css'
 import likeIcon from './../../../../Icons/thumb-up-outline.svg'
 
 const Post = (props) => {
     return (
-        <div className={postStyles.wrapper}>
-            <div className={postStyles.avatar}>
-                <img src={props.avatarLink} alt="avatar" />
+        <div className={styles.wrapper}>
+            <div className={styles.container}>
+                <div className={styles.avatar}>
+                    <img src={props.avatarLink} alt="avatar" />
+                </div>
+                <div className={styles.textWrapper}>
+                    <div className={styles.text}>
+                        <h2>{props.name}</h2>
+                        <p>{props.text}</p>
+                    </div>
+                </div>
             </div>
-            <div className={postStyles.textWrapper}>
-                <div className={postStyles.text}>
-                    <h2>{props.name}</h2>
-                    <p>{props.text}</p>
-                </div>
-                <div className={postStyles.likes}>
-                    <p className={postStyles.likesCount}>{props.likesCount + ' '}</p>
-                    <img src={likeIcon} alt="icon" />
-                </div>
+            <div className={styles.likes}>
+                <p className={styles.likesCount}>{props.likesCount + ' '}</p>
+                <img src={likeIcon} alt="icon" />
             </div>
         </div >
     )

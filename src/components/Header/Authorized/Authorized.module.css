@@ -1,6 +1,7 @@
 .auth {
     display: flex;
     margin-left: auto;
+    z-index: 3;
 }
 
 .avatar{
@@ -27,6 +28,12 @@
     margin: 0;
     font-size: 0.8em;
     display: block;
+}
+
+@media (max-width: 767px) {
+    .auth p {
+        display: none;
+    }
 }
   
 .auth p:last-child {

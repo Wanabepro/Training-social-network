@@ -1,4 +1,4 @@
-input {
+.InputField {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.151);
     color: #fff;
@@ -9,13 +9,17 @@ input {
     font-size: 0.8em;
 }
 
-span {
+.status {
     height: 20px;
     font-size: 0.8em;
     box-sizing: border-box;
     padding: 2px;
     line-height: 20px;
     border-radius: 2.5px;
+}
+
+.authorized {
+    composes: status;
 }
 
 .authorized:hover {
