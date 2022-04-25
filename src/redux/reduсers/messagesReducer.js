@@ -1,4 +1,8 @@
+// import { dialogsAPI } from "../../api/api"
+
 const SEND_MESSAGE = 'messages/SEND_MESSAGE'
+const SET_LAST_MESSAGE = 'messages/SET_LAST_MESSAGE'
+// const GET_DIALOGS = 'messages/GET_DIALOGS'
 
 const initialState = {
     dialogs: [
@@ -7,9 +11,15 @@ const initialState = {
         { id: 3, avatarLink: 'https://sun9-63.userapi.com/impf/c845420/v845420935/4c78c/r3-y56vS2_M.jpg?size=1536x1920&quality=96&sign=65f9e9c43390a9a7eb39bf33d172a01c&type=album', name: 'Анатолий', lastMessage: 'последнее собщение 3' },
     ],
     messages: [
-        { id: 0, message: 'Сообщение 1' },
-        { id: 1, message: 'Сообщение 2' },
-        { id: 2, message: 'Сообщение 3' },
+        { dialogId: 1, userId: 1, id: 0, message: 'Сообщение 1' },
+        { dialogId: 1, userId: 1, id: 1, message: 'Сообщение 2' },
+        { dialogId: 1, userId: 1, id: 2, message: 'Сообщение 3' },
+        { dialogId: 2, userId: 2, id: 0, message: 'Сообщение 4' },
+        { dialogId: 2, userId: 2, id: 1, message: 'Сообщение 5' },
+        { dialogId: 2, userId: 2, id: 2, message: 'Сообщение 6' },
+        { dialogId: 3, userId: 3, id: 0, message: 'Сообщение 7' },
+        { dialogId: 3, userId: 3, id: 1, message: 'Сообщение 8' },
+        { dialogId: 3, userId: 3, id: 2, message: 'Сообщение 9' },
     ],
 }
 
@@ -20,10 +30,22 @@ const messagesReducer = (state = initialState, action) => {
                 ...state,
                 messages: [...state.messages,
                 {
-                    id: state.messages.length,
+                    dialogId: action.dialogId,
+                    userId: action.userId,
+                    id: state.messages.filter(message => message.dialogId === action.dialogId).length,
                     message: action.newMessage,
                 }
                 ]
+            }
+        }
+
+        case SET_LAST_MESSAGE: {
+            return {
+                ...state,
+                dialogs: state.dialogs.map(dialog => {
+                    if (dialog.id === action.id) return { ...dialog, lastMessage: action.lastMessage }
+                    return dialog
+                })
             }
         }
 
@@ -31,6 +53,7 @@ const messagesReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessage = (newMessage) => ({ type: SEND_MESSAGE, newMessage })
+export const sendMessage = (newMessage, userId, dialogId) => ({ type: SEND_MESSAGE, newMessage, userId, dialogId })
+export const setLastMessage = (id, lastMessage) => ({ type: SET_LAST_MESSAGE, id, lastMessage })
 
 export default messagesReducer

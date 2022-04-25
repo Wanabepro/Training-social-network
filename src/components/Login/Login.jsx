@@ -45,9 +45,14 @@ const LoginForm = reduxForm({ form: 'login' })(Form)
 const Login = props => {
     const onSubmit = formData => { props.login(formData.email, formData.password, formData.rememberMe, formData.captcha) }
 
+    const initialValues = {
+        email: 'cekosex176@superyp.com',
+        password: '7RpbiP5LaGE7cLH'
+    }
+
     return props.isAuth
         ? <Redirect to={`/profile/${props.authorizedUserID}`} />
-        : <LoginForm onSubmit={onSubmit} login={props.login} captchaURL={props.captchaURL} />
+        : <LoginForm initialValues={initialValues} onSubmit={onSubmit} login={props.login} captchaURL={props.captchaURL} />
 }
 
 const mapStateToProps = (state) => ({

@@ -21,12 +21,12 @@ const ProfileInfo = props => {
                 <h1>{props.profileInfo.fullName}</h1>
                 <ul>
                     <li><ProfileStatus status={props.status} updateStatus={props.updateStatus} authorizedUserProfile={props.authorizedUserProfile} /></li>
-                    <li>Ищу работу: {props.profileInfo.lookingForAJob ? 'да' : 'нет'}</li>
+                    <li>{props.profileInfo.lookingForAJob ? 'Ищу работу' : 'Не ищу работу'}</li>
                     <li>{props.profileInfo.lookingForAJobDescription}</li>
                 </ul>
                 <div className={profileInfoStyles.contacts}>
                     {Object.keys(props.profileInfo.contacts).map(key => {
-                        if (props.profileInfo.contacts[key] === null) return
+                        if (props.profileInfo.contacts[key] === null || props.profileInfo.contacts[key] === '') return undefined
                         return <Contact key={key} socialNetworkName={key} link={props.profileInfo.contacts[key]} />
                     })}
                 </div>

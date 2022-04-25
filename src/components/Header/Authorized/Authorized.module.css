@@ -29,12 +29,6 @@
     font-size: 0.8em;
     display: block;
 }
-
-@media (max-width: 767px) {
-    .auth p {
-        display: none;
-    }
-}
   
 .auth p:last-child {
     font-size: 0.6em;
@@ -46,7 +40,7 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    margin: 0 10px;
+    margin-left: 10px;
 }
 
 .auth div:last-child button {
@@ -62,4 +56,13 @@
 
 .auth div:last-child button:hover {
     background-color: rgba(255, 255, 255, 0.557);
+}
+
+@media (max-width: 767px) {
+    .auth p {
+        display: none;
+    }
+    .auth div:last-child {
+        margin: 0;
+    }
 }

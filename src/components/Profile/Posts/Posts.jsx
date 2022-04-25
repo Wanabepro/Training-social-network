@@ -21,7 +21,7 @@ const PostsForm = reduxForm({ form: 'newPost' })(Form)
 
 const Posts = props => {
     const addNewPost = (values) => {
-        props.sendPost(values.newPost)
+        props.sendPost(values.newPost, props.name, props.avatar)
         props.reset('newPost')
     }
 
@@ -31,7 +31,10 @@ const Posts = props => {
 
     return (
         <div className={postsStyles.wrappaer}>
-            <PostsForm onSubmit={addNewPost} />
+            {props.authorizedUserProfile
+                ? <PostsForm onSubmit={addNewPost} />
+                : undefined
+            }
             {posts}
         </div >
     )

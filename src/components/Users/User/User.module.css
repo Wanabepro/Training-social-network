@@ -26,6 +26,10 @@
     padding-bottom: 100%;
 }
 
+.avatar:hover {
+    background-color: rgba(255, 255, 255, 0.429);
+}
+
 .avatar img {
     position: absolute;
     top: 0;
@@ -83,6 +87,11 @@
     margin: 0;
     word-wrap: break-word;
     word-break: break-all;
+}
+
+.rightLink{
+    width: 100%;
+    height: 100%;
 }
 
 @media (max-width: 767px) {

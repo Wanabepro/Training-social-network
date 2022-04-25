@@ -23,8 +23,10 @@ const User = (props) => {
                 </div>
             </div>
             <div className={userStyles.info}>
+            <NavLink to={`/profile/${props.user.id}`} className={userStyles.rightLink}>
                 <h2>{props.user.name}</h2>
                 <p>{props.user.status}</p>
+            </NavLink>
             </div>
         </div>
     )

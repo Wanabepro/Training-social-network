@@ -6,7 +6,7 @@ import Navbar from './../Navbar/Navbar';
 
 const Header = (props) => {
     let [burgerIsActive, toggleBurger] = useState(false)
-    const burgerOnClick = () => {
+    const toggleIsActive = () => {
         if (burgerIsActive) return toggleBurger(false)
         return toggleBurger(true)
     }
@@ -14,11 +14,11 @@ const Header = (props) => {
     const activeMenuStyleSetter = isActive => isActive ? ` ${styles.activeMenu}` : ''
 
     return (
-        <header>
-            <div className={styles.burger + activeStyleSetter(burgerIsActive)} onClick={burgerOnClick}>
+        <header className={styles.mainHeader}>
+            <div className={styles.burger + activeStyleSetter(burgerIsActive)} onClick={toggleIsActive}>
                 <span></span>
             </div>
-            <div className={styles.menu + activeMenuStyleSetter(burgerIsActive)}>
+            <div className={styles.menu + activeMenuStyleSetter(burgerIsActive)} onClick={toggleIsActive}>
                 <Navbar />
             </div>
             <div className={styles.logo}></div>

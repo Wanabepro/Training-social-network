@@ -17,12 +17,6 @@
   margin-bottom: 15px;
 }
 
-@media (max-width: 767px) {
-  .sidebar {
-    display: none;
-  }
-}
-
 @media (max-width: 1200px) {
   .bodyWrapper{
     max-width: 970px;
@@ -35,18 +29,21 @@
   }
 }
 
-@media (max-width: 767px) {
-  .bodyWrapper{
-    max-width: none;
-  }
-}
-
 .contentWrapper {
   margin: 0;
   width: 87%;
 }
 
 @media (max-width: 767px) {
+  .bodyWrapper{
+    max-width: none;
+    width: calc(100% - 20px);
+  }
+
+  .sidebar {
+    display: none;
+  }
+
   .contentWrapper {
     width: 100%;
   }

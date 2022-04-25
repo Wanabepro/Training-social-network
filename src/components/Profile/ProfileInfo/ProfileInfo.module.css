@@ -26,11 +26,24 @@
     width: 40%;
     box-sizing: border-box;
     overflow: hidden;
+    /* cursor: pointer; */
+}
+
+.photo::after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2%;
+    content: '';
+    z-index: 2;
+    background-color: #48666F;
 }
 
 @media (max-width: 900px) {
     .photo {
-        padding: 0 0 70% 0;
+        padding: 0 10px 70% 10px;
         width: 100%;
     }
 }
@@ -38,10 +51,9 @@
 .photo img {
     position: absolute;
     object-fit: cover;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-    border-radius: 2.5px;
+    top: 2%;
+    left: 2%;
+    width: 96%;
 }
 
 .noPhoto {

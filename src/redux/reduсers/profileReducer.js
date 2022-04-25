@@ -1,10 +1,12 @@
 import { profileAPI } from './../../api/api';
 import { stopSubmit } from 'redux-form';
+import avatar from './../../Icons/User-avatar.png'
 
 const SET_PROFILE_INFO = 'profile/SET_PROFILE_INFO'
 const SEND_POST = 'profile/SEND_POST'
 const TOGGLE_IS_LOADING = 'profile/TOGGLE_IS_LOADING'
 const SET_STATUS = 'profile/SET_STATUS'
+const GET_POSTS = 'profile/GET_POSTS'
 
 const initialState = {
     profileInfo: null,
@@ -43,14 +45,20 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 posts: [
                     {
-                        id: state.posts.length,
-                        name: 'Сергей Ильясов',
-                        avatarLink: 'https://sun9-87.userapi.com/impf/c848632/v848632082/ad691/Bwea4WZhDOw.jpg?size=1504x1000&quality=96&sign=33bb05f520ade8f6d7ee10222d71d569&type=album',
+                        id: state.posts.length + 1,
+                        name: action.name,
+                        avatarLink: action.avatar ? action.avatar : avatar,
                         text: action.newPost,
                         likesCount: 0,
                     },
                     ...state.posts,
                 ],
+            }
+
+        case GET_POSTS:
+            return {
+                ...state,
+                posts: action.posts
             }
 
         default:
@@ -61,11 +69,22 @@ const profileReducer = (state = initialState, action) => {
 const setProfileInfo = (info) => ({ type: SET_PROFILE_INFO, info })
 const toggleIsLoading = (isLoading) => ({ type: TOGGLE_IS_LOADING, isLoading })
 const setStatus = (status) => ({ type: SET_STATUS, status })
-export const sendPost = (newPost) => ({ type: SEND_POST, newPost })
+const setPosts = (posts) => ({ type: GET_POSTS, posts })
+export const sendPost = (newPost, name, avatar) => ({ type: SEND_POST, newPost, name, avatar })
+
+const getPosts = (userId, photo, name) => async dispatch => {
+    console.log()
+    const id = String(userId).split('')[String(userId).length - 1] === '0'
+        ? '1'
+        : String(userId).split('')[String(userId).length - 1]
+    const posts = await profileAPI.getPosts(id, photo, name)
+    dispatch(setPosts(posts))
+}
 
 export const getProfile = id => async dispatch => {
     dispatch(toggleIsLoading(true))
     const data = await profileAPI.getProfile(id)
+    await dispatch(getPosts(id, data.photos.large, data.fullName))
     dispatch(toggleIsLoading(false))
     dispatch(setProfileInfo(data))
 }

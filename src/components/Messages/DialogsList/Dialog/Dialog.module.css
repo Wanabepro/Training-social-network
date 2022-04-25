@@ -1,14 +1,21 @@
+
 .wrapper {
     display: flex;
-    margin: 10px;
+    margin-bottom: 10px;
     border-radius: 5px;
-    height: 70px;
+    padding: 5px 0;
+    height: fit-content;
     background-color: rgba(255, 255, 255, 0.151);
+    padding: 5px;
+}
+
+.wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.369);
 }
 
 .avatar {
     background-color: rgba(255, 255, 255, 0.151);
-    margin: auto 0 auto 10px;
+    margin: auto 0;
     height: 60px;
     width: 60px;
     border-radius: 50%;
@@ -26,19 +33,26 @@
 }
 
 .info {
+    display: inline;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
     padding: 10px 0 10px 10px;
+    width: calc(100% - 70px);
 }
 
-.info p{
+.info h3 {
+    margin: 0;
+}
+
+.info div {
     margin: 0;
     padding: 0;
-}
-
-p:last-child {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.554);
 }

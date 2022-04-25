@@ -44,22 +44,26 @@ const Form = props => {
     )
 }
 
-const PersonalDataForm = reduxForm({ form: 'personalDataForm' })(Form)
+const PersonalDataForm = reduxForm({ form: 'personalDataForm', enableReinitialize: true })(Form)
 
 const PersonalData = props => {
-    const onSubmit = formData => {
-        props.updateProfile(props.authorizedUserId, formData)
+    const onSubmit = async formData => {
+        await props.updateProfile(props.authorizedUserId, formData)
         props.getProfile(props.authorizedUserId)
     }
 
     const [userData, setUserData] = useState()
 
     useEffect(() => {
-        if (props.profileInfo !== null) return setUserData(props.profileInfo)
-        props.getProfile(props.authorizedUserId)
-    }, [props.profileInfo])
-    
+        if (props.profileInfo !== null && props.profileInfo.userId === props.authorizedUserId) return setUserData(props.profileInfo)
+        const getProfile = async () => {
+            await props.getProfile(props.authorizedUserId)
+        }
+        getProfile()
+    })
+
     if (props.isLoading) return <Preloader />
+
     return (
         <div className={styles.container}>
             <PersonalDataForm initialValues={userData} onSubmit={onSubmit} />

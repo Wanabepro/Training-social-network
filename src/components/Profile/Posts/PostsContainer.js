@@ -6,9 +6,9 @@ import Posts from './Posts';
 let mapStateToProps = (state) => {
     return ({
         posts: state.profilePage.posts,
-        newPostText: state.profilePage.newPostText,
-    }
-    )
+        name: state.profilePage.profileInfo.fullName,
+        avatar: state.profilePage.profileInfo.photos.large
+    })
 }
 
 const PostsContainer = connect(mapStateToProps, { sendPost, reset })(Posts)
